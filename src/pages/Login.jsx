@@ -14,7 +14,7 @@ export const Login = ({ token }) => {
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
     const navigate = useNavigate();
-
+const backend = import.meta.env.VITE_BACKEND;
     if (token) navigate("/");
 
 
@@ -26,7 +26,7 @@ export const Login = ({ token }) => {
                 setErrorMessage('Please enter both email and password');
                 return;
             }
-            const response = await axios.post('http://localhost:3000/users/login', {
+            const response = await axios.post(`${backend}/users/login`, {
                 email,
                 password,
             });
