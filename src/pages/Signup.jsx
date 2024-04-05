@@ -24,7 +24,7 @@ export const Signup = ({token}) => {
                 return;
             }
 
-            const response = await axios.post('http://localhost:3000/users/signup', {
+            const response = await axios.post(`${backend}/users/signup`, {
                 email,
                 password,
             });
